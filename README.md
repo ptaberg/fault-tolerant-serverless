@@ -62,6 +62,8 @@ graph TD
    }'
    ```
 
+   (or you can use the `dev.http` file)
+
 2. Monitor CloudWatch logs to observe:
    - Go to CloudWatch Log Insights
    - Select the log group for the `fault-tolerant-backend` service
@@ -69,7 +71,7 @@ graph TD
      ```sql
      fields @timestamp, @message, @logStream, @log
       | sort @timestamp desc
-      | filter @message like /task-203/
+      | filter @message like /task123/
       | limit 10000
      ```
    - Click "Run Query"
