@@ -1,5 +1,5 @@
 org: mptashyts
-app: fault-tolerant-backend
+app: pizza
 service: fault-tolerant-backend
 
 frameworkVersion: '4'

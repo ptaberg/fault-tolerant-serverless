@@ -63,9 +63,17 @@ graph TD
    ```
 
 2. Monitor CloudWatch logs to observe:
-   - Task processing attempts
-   - Simulated failures
-   - Failed tasks after 2 retries are moved to DLQ
+   - Go to CloudWatch Log Insights
+   - Select the log group for the `fault-tolerant-backend` service
+   - Run the following query:
+     ```sql
+     fields @timestamp, @message, @logStream, @log
+      | sort @timestamp desc
+      | filter @message like /task-203/
+      | limit 10000
+     ```
+   - Click "Run Query"
+   - You should see the logs for the task you submitted
 
 ## Implementation Details
 
@@ -78,8 +86,7 @@ graph TD
 
 ## Assumptions
 
-1. Task IDs are unique (client responsibility)
-2. Task payloads are valid JSON objects
+1. Task payloads are valid JSON objects
 
 ## Error Handling
 
