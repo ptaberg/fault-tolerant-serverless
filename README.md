@@ -64,14 +64,13 @@ graph TD
 
 2. Monitor CloudWatch logs to observe:
    - Task processing attempts
-   - Simulated failures:
-     - 30% of tasks are randomly failed
-     - all tasks with ID ending with 3 are permanently failed
-   - Failed tasks in DLQ
+   - Simulated failures
+   - Failed tasks after 2 retries are moved to DLQ
 
 ## Implementation Details
 
 - Tasks have a 30% chance of failure
+- Tasks with ID ending with 3 are permanently failed
 - Failed tasks are retried twice with exponential backoff
 - After 2 failed attempts, tasks are moved to DLQ
 - DLQ messages are retained for 14 days
@@ -80,14 +79,10 @@ graph TD
 ## Assumptions
 
 1. Task IDs are unique (client responsibility)
-2. Tasks are idempotent
-3. Task payloads are valid JSON objects
-4. Processing time is within the Lambda execution limit
-5. Message size is within SQS limits (256KB)
+2. Task payloads are valid JSON objects
 
 ## Error Handling
 
 - API validation for required fields
 - SQS dead-letter queue for failed tasks
 - Comprehensive error logging
-- Automatic retries with exponential backoff
