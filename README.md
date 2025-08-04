@@ -77,7 +77,7 @@ graph TD
    - Click "Run Query"
    - You should see the logs for the task you submitted
 
-   ![Logs](./logs.png)
+   ![Logs](./docs/logs.png)
 
 ## Implementation Details
 
