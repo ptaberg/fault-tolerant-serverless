@@ -1,0 +1,13 @@
+### Variables
+@baseUrl = https://p7hoevfdi8.execute-api.us-east-1.amazonaws.com
+
+### Submit a valid task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+    "taskId": "task-203",
+    "payload": {
+        "action": "processOrder"
+    }
+}
