@@ -38,8 +38,8 @@ graph TD
    - Open `serverless.yml`
    - Remove or update the following lines with your own Serverless Dashboard credentials (optional):
      ```yaml
-     org: mptashyts           # Remove or replace with your org
-     app: fault-tolerant-backend  # Remove or replace with your app name
+     org: mptashyts           # Replace with your org
+     app: fault-tolerant-backend  # Replace with your app name
      ```
    Note: These lines are only needed if you want to use the Serverless Dashboard features. The application will work without them.
 
