@@ -77,6 +77,8 @@ graph TD
    - Click "Run Query"
    - You should see the logs for the task you submitted
 
+   [Logs](./logs.png)
+
 ## Implementation Details
 
 - Tasks have a 30% chance of failure
